@@ -132,6 +132,13 @@ export default {
         required: true,
         group: 'Postgres',
       })
+      .option('postgres-ssl', {
+        description: 'Postgres ssl enabled',
+        type: 'boolean',
+        required: false,
+        default: false,
+        group: 'Postgres',
+      })
       .option('network-subgraph-deployment', {
         description: 'Network subgraph deployment',
         type: 'string',
@@ -292,6 +299,7 @@ export default {
       host: argv.postgresHost,
       port: argv.postgresPort,
       database: argv.postgresDatabase,
+      ssl: argv.postgresSslEnabled,
     })
     const sequelize = await connectDatabase({
       logging: undefined,
@@ -300,6 +308,7 @@ export default {
       username: argv.postgresUsername,
       password: argv.postgresPassword,
       database: argv.postgresDatabase,
+      ssl: argv.postgresSslEnabled,
     })
     const queryFeeModels = defineQueryFeeModels(sequelize)
     const models = defineIndexerManagementModels(sequelize)

@@ -532,6 +532,7 @@ export async function run(
     port: argv.postgresPort,
     database: argv.postgresDatabase,
     poolMax: argv.postgresPoolSize,
+    ssl: argv.postgresSslEnabled,
   })
   const sequelize = await connectDatabase({
     logging: undefined,
@@ -540,6 +541,7 @@ export async function run(
     username: argv.postgresUsername,
     password: argv.postgresPassword,
     database: argv.postgresDatabase,
+    ssl: argv.postgresSslEnabled,
     poolMin: 0,
     poolMax: argv.postgresPoolSize,
   })

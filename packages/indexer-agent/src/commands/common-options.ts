@@ -81,6 +81,13 @@ export function injectCommonStartupOptions(argv: Argv): Argv {
       required: true,
       group: 'Postgres',
     })
+    .option('postgres-ssl', {
+      description: 'Postgres ssl enabled',
+      type: 'boolean',
+      required: false,
+      default: false,
+      group: 'Postgres',
+    })
     .option('postgres-pool-size', {
       description: 'Postgres maximum connection pool size',
       type: 'number',
